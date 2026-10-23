@@ -1,0 +1,58 @@
+{
+  "balcao": {
+    "widths": [
+      480,
+      800
+    ],
+    "ratio": 1.5009
+  },
+  "consultorio-1": {
+    "widths": [
+      480,
+      800
+    ],
+    "ratio": 1.5009
+  },
+  "consultorio-2": {
+    "widths": [
+      480,
+      960
+    ],
+    "ratio": 1.5
+  },
+  "dr-fernando": {
+    "widths": [
+      480,
+      819
+    ],
+    "ratio": 0.7998
+  },
+  "espera": {
+    "widths": [
+      480,
+      800
+    ],
+    "ratio": 1.5009
+  },
+  "pelotas": {
+    "widths": [
+      480,
+      960
+    ],
+    "ratio": 1.5
+  },
+  "porta": {
+    "widths": [
+      480,
+      800
+    ],
+    "ratio": 1.5009
+  },
+  "recepcao": {
+    "widths": [
+      480,
+      800
+    ],
+    "ratio": 1.5009
+  }
+}

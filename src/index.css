@@ -1,0 +1,112 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  html.lenis, html.lenis body { height: auto; }
+  .lenis.lenis-smooth { scroll-behavior: auto !important; }
+  .lenis.lenis-stopped { overflow: hidden; }
+
+  body {
+    @apply bg-base font-sans text-body text-ink;
+    overflow-x: clip;
+  }
+  ::selection { background: #C8A161; color: #1C1C1A; }
+  h1, h2, h3 { text-wrap: balance; }
+  p { text-wrap: pretty; }
+  :focus-visible { outline: 2px solid #C8A161; outline-offset: 3px; }
+
+  @media (hover: hover) and (pointer: fine) {
+    html.has-cursor [data-cursor] { cursor: none; }
+  }
+}
+
+@layer components {
+  .container-site { @apply mx-auto w-full max-w-site px-5 md:px-10 lg:px-16; }
+  .section { @apply py-24 md:py-36; }
+  .hairline { @apply h-px w-full bg-stone; }
+
+  .nav-link { @apply relative py-2 transition-opacity duration-500; }
+  .nav-link::after {
+    content: '';
+    @apply absolute bottom-0 left-0 h-px w-full origin-right scale-x-0 bg-current transition-transform duration-700 ease-expo;
+  }
+  .nav-link:hover::after, .nav-link.active::after { @apply origin-left scale-x-100; }
+
+  .footer-link { @apply text-base/80 transition-colors duration-500 hover:text-accent; }
+}
+
+/* Grão de papel sobre todo o site */
+.grain {
+  pointer-events: none;
+  position: fixed;
+  inset: -50%;
+  z-index: 110;
+  opacity: 0.035;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='220' height='220'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3CfeColorMatrix values='0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+
+/* Preloader: logo desenhado em traço */
+.logo-draw path {
+  stroke: currentColor;
+  stroke-width: 0.6;
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  fill-opacity: 0;
+  animation: draw 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards, fillIn 0.35s ease 0.45s forwards;
+}
+.logo-draw g path { stroke: #C8A161; }
+@keyframes draw { to { stroke-dashoffset: 0; } }
+@keyframes fillIn { to { fill-opacity: 1; } }
+
+/* Logo em outline no rodapé */
+.logo-outline path { fill: none !important; stroke: currentColor; stroke-width: 0.35; opacity: 0.55; }
+.logo-outline g path { stroke: #C8A161; opacity: 0.8; }
+
+/* Marquee em outline */
+.text-outline { color: transparent; -webkit-text-stroke: 1px #1C1C1A; }
+.text-outline-accent { color: transparent; -webkit-text-stroke: 1px #C8A161; }
+
+/* Pulso sutil do WhatsApp a cada 8s */
+.wa-pulse::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 9999px;
+  border: 1px solid #C8A161;
+  animation: pulse 8s cubic-bezier(0.22, 1, 0.36, 1) infinite 1s;
+}
+@keyframes pulse {
+  0% { transform: scale(1); opacity: 0.9; }
+  12% { transform: scale(1.6); opacity: 0; }
+  100% { transform: scale(1.6); opacity: 0; }
+}
+
+@keyframes scrollLine {
+  0% { transform: scaleY(0); transform-origin: top; }
+  45% { transform: scaleY(1); transform-origin: top; }
+  55% { transform: scaleY(1); transform-origin: bottom; }
+  100% { transform: scaleY(0); transform-origin: bottom; }
+}
+@keyframes fade { from { opacity: 0; } }
+@keyframes slideDown { from { clip-path: inset(0 0 100% 0); } to { clip-path: inset(0 0 0 0); } }
+
+/* Mapa em tons neutros */
+.map-neutral { filter: grayscale(1) sepia(0.25) contrast(0.92) brightness(1.04); }
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+  }
+  .logo-draw path { stroke-dashoffset: 0; fill-opacity: 1; }
+}
+
+@keyframes accDown { from { height: 0; opacity: 0; } to { height: var(--radix-accordion-content-height); opacity: 1; } }
+@keyframes accUp { from { height: var(--radix-accordion-content-height); opacity: 1; } to { height: 0; opacity: 0; } }
