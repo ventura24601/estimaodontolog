@@ -5,7 +5,6 @@ import { Manifesto } from '@/components/sections/Manifesto';
 import { Numbers } from '@/components/sections/Numbers';
 import { AboutTeaser } from '@/components/sections/AboutTeaser';
 import { TreatmentsScroller } from '@/components/sections/TreatmentsScroller';
-import { Marquee } from '@/components/sections/Marquee';
 import { TechStory } from '@/components/sections/TechStory';
 import { Differentials } from '@/components/sections/Differentials';
 import { Cases } from '@/components/sections/Cases';
@@ -26,7 +25,6 @@ export default function Home() {
       <Numbers />
       <AboutTeaser />
       <TreatmentsScroller />
-      <Marquee />
       <TechStory />
       <Differentials />
       <Cases />

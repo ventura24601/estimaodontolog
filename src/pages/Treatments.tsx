@@ -8,7 +8,6 @@ import { Placeholder } from '@/components/ui/Placeholder';
 import { ParallaxMedia } from '@/components/ui/ParallaxMedia';
 import { Reveal } from '@/components/ui/Reveal';
 import { Arrow } from '@/components/ui/Icons';
-import { Marquee } from '@/components/sections/Marquee';
 import { FinalCta } from '@/components/sections/FinalCta';
 import { cn } from '@/lib/cn';
 import { site } from '@/lib/site';
@@ -54,7 +53,6 @@ export default function Treatments() {
           ))}
         </ul>
       </section>
-      <Marquee />
       <FinalCta />
     </>
   );

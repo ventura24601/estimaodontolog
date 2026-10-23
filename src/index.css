@@ -68,10 +68,6 @@
 .logo-outline path { fill: none !important; stroke: currentColor; stroke-width: 0.35; opacity: 0.55; }
 .logo-outline g path { stroke: #C8A161; opacity: 0.8; }
 
-/* Marquee em outline */
-.text-outline { color: transparent; -webkit-text-stroke: 1px #1C1C1A; }
-.text-outline-accent { color: transparent; -webkit-text-stroke: 1px #C8A161; }
-
 /* Pulso sutil do WhatsApp a cada 8s */
 .wa-pulse::before {
   content: '';
